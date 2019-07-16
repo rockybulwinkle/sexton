@@ -1,3 +1,7 @@
+
+
+This is a port of Sexton to support PySide2.
+--------
 Sexton is a cross-platform hex editor written in Python. Its main goal is to be able to open and search in very large files very quickly.
 
 ![Alt](images/sexton.png "Screenshot")
@@ -11,7 +15,7 @@ Features
 Required packages
 -----------------
 * Python 3
-* PySide
+* PySide2
 
 Optional packages
 -----------------
