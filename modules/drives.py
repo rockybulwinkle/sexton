@@ -13,9 +13,10 @@ except:
 	win32file = None
 
 
-from PySide import QtGui, QtUiTools
-from PySide.QtCore import *
-from PySide.QtGui import *
+from PySide2 import QtGui, QtUiTools
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
 from Petter.guihelper import exception_handler, invoke_in_main_thread
 

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # Petter Strandmark 2013–2014.
@@ -8,10 +8,11 @@ import os
 import sys
 
 # Import Qt modules
-import PySide
-from PySide import QtGui
-from PySide.QtCore import *
-from PySide.QtGui import *
+import PySide2 as PySide
+from PySide2 import QtGui
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
 try:
 	import win32com.shell.shell as pywin32_shell
@@ -33,7 +34,8 @@ software_name = 'Sexton'
 __version__   = '4.0'
 
 
-class HexView(QtGui.QWidget):
+#class HexView(QtGui.QWidget):
+class HexView(QWidget):
 	HEX_LEFT = object()
 	HEX_RIGHT = object()
 	TEXT = object()
@@ -717,7 +719,7 @@ class Main(PMainWindow):
 	def on_actionOpen_triggered(self):
 		default_dir = self.settings.value("default_dir", '')
 		filter = "All files (*)"
-		(file_name, mask) = QtGui.QFileDialog.getOpenFileName(self,
+		(file_name, mask) = QFileDialog.getOpenFileName(self,
 		                                                      "Choose a file",
 		                                                      default_dir,
 		                                                      filter)
@@ -739,11 +741,11 @@ class Main(PMainWindow):
 		QMessageBox.about(self, "About " + software_name,
 			"""<b>%s</b> v %s
 			<p>Copyright © 2013 Petter Strandmark.
-			<p>PySide version %s - Qt version %s""" %
+			<p>PySide2 version %s - Qt version %s""" %
 				(software_name,
 				__version__,
-				PySide.__version__,
-				PySide.QtCore.__version__,))
+				PySide2.__version__,
+				PySide2.QtCore.__version__,))
 
 	@Slot()
 	@exception_handler
@@ -875,7 +877,7 @@ ASADMIN = '--asadmin'
 
 
 def main():
-	app = QtGui.QApplication(sys.argv)
+	app = QApplication(sys.argv)
 	window = Main()
 	window.show()
 

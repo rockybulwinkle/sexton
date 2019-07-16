@@ -1,8 +1,8 @@
 
 import os
 
-from PySide import QtCore, QtGui, QtUiTools
-from PySide.QtCore import *
+from PySide2 import QtCore, QtGui, QtUiTools, QtWidgets
+from PySide2.QtCore import *
 
 try:
     from queue import Queue
@@ -57,14 +57,14 @@ def exception_handler(f):
                            '" encountered.\n' + file_name +  \
                            ", line " + line + "\n" + f.__name__ + \
                            ':\n\n' + str(e)
-            QtGui.QMessageBox.critical(self, 'Exception', error_string)
+            QtWidgets.QMessageBox.critical(self, 'Exception', error_string)
     return wrapper
 
 
 #
 # Main window class which loads UI files, supports settings, etc.
 #
-class PMainWindow(QtGui.QMainWindow):
+class PMainWindow(QtWidgets.QMainWindow):
     def __init__(self,
                  ui_file,
                  ui_dir,
@@ -72,7 +72,7 @@ class PMainWindow(QtGui.QMainWindow):
                  app_name,
                  default_width=800,
                  default_height=300):
-        QtGui.QMainWindow.__init__(self)
+        QtWidgets.QMainWindow.__init__(self)
 
         # Set up UI
         loader = QtUiTools.QUiLoader()

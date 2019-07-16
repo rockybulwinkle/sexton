@@ -4,7 +4,7 @@
 import unittest
 import sys
 
-from PySide import QtCore, QtGui
+from PySide2 import QtCore, QtGui
 
 import sexton
 from modules.data_buffer import TestBuffer
